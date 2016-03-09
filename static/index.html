@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+Copyright 2016 Google Inc. All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+//-->
+<html>
+<head>
+	<title>GA Tag Assistant</title>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="/node_modules/angular-material/angular-material.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/main.css">
+</head>
+<body ng-app="gata" ng-cloak>
+	<md-toolbar class="md-whiteframe-z1"><md-icon class="material-icons">android</md-icon></md-toolbar>
+	<hit-summary layout layout-wrap></hit-summary>
+
+<!-- NG-TEMPLATES -->
+<script type="text/ng-template" id="hit-detail.html">
+	<md-dialog class="detail">
+	<md-toolbar ng-style="detail.util.color(detail.hit.an)">
+	  	<md-icon class="material-icons">local_offer</md-icon>
+	</md-toolbar>
+	<md-dialog-content>
+	  <md-list>
+		  <md-list-item class="md-2-line" ng-repeat="(key, val) in detail.hit">
+	        <div class="md-list-item-text">
+	          <h3>{{ key }}</h3>
+	          <p>{{ val }}</p>
+	        </div>
+	      </md-list-item>
+      </md-list>
+	</md-dialog-content>
+	<md-dialog-actions>
+	  <md-button class="md-accent md-raised" ng-click='detail.simulateInstall()'>
+	    <md-icon class="material-icons">get_app</md-icon> Test install
+	  </md-button>
+	  <md-button class="md-accent md-raised" ng-click='detail.testDeeplink()'>
+	    <md-icon class="material-icons">launch</md-icon> Test deeplink
+	  </md-button>
+	</md-dialog-actions>
+	</md-dialog>
+</script>
+<!-- NG-TEMPLATES -->
+<script type="text/ng-template" id="hit-summary.html">
+	<div layout="row" flex="grow" layout-align="center">
+		<md-progress-circular md-mode="indeterminate" class="md-accent"
+			ng-show="receiver.connecting"></md-progress-circular>
+	</div>
+	<md-card ng-repeat="hit in receiver.hits" ng-style="receiver.util.color(hit.an)"
+	  ng-click="receiver.showHitDetail($event, hit)" class="clickable animate-repeat">
+	  <md-card-title><md-card-title-text>
+	    <span class="md-headline">{{hit.an || hit.aid || "(other)"}}</span>
+	    <span class="md-subhead">({{hit.t || "other"}})</span>
+	  </md-card-title-text></md-card-title>
+	</md-card>
+</script>
+<script type="text/javascript" src="/node_modules/angular/angular.min.js"></script>
+<script type="text/javascript" src="/node_modules/angular-animate/angular-animate.min.js"></script>
+<script type="text/javascript" src="/node_modules/angular-aria/angular-aria.min.js"></script>
+<script type="text/javascript" src="/node_modules/angular-material/angular-material.min.js"></script>
+<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+<script type="text/javascript" src="/static/main.js"></script>
+<link type="text/css" rel="stylesheet" href="/static/icons.css">
+</body>
+</html>
+

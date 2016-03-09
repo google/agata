@@ -1,0 +1,25 @@
+{
+  "name": "agata",
+  "version": "1.0.0",
+  "description": "Android-GA tagging assistant; helps visualize GAv4 tags for instrumented apps.",
+  "scripts": {
+    "test": "mocha"
+  },
+  "main": "static/main.html",
+  "window": {
+    "width": 800,
+    "height": 600
+  },
+  "author": "jag",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "angular": "^1.4.8",
+    "angular-animate": "^1.4.8",
+    "angular-aria": "^1.4.8",
+    "angular-material": "^1.0.5",
+    "express": "^4.13.3",
+    "open": "0.0.5",
+    "socket.io": "^1.3.7",
+    "promise": "~7.1.1"
+  }
+}

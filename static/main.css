@@ -1,0 +1,74 @@
+/*
+ * Copyright 2016 Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+body {
+    font-family: 'Roboto', 'Helvetica', sans-serif;
+    margin: 0;
+}
+
+h4 {
+    margin:0;
+}
+
+.detail {
+    width:400px;
+}
+
+.detail .titlebar {
+    height:48px;
+    line-height: 48px;
+    background-color:#2196f3;
+    text-align: center;
+    width:100%;
+}
+
+.detail .titlebar md-icon {
+    color:#fff;
+}
+
+md-card {
+    color:#fff;
+    min-width:150px;
+}
+
+md-toolbar md-icon {
+    cursor: default;
+}
+
+.clickable {
+    cursor: pointer;
+    outline: none;
+}
+
+#install {
+    position: absolute;
+    bottom:10px;
+    right:10px;
+}
+
+/**
+ * Animations
+ */
+.animate-repeat.ng-enter {
+  transition: all .3s ease-in-out;
+  opacity:0;
+  transform: translateX(800px);
+}
+
+.animate-repeat.ng-enter.ng-enter-active {
+  opacity:1;
+  transform: translateX(50px);
+}
