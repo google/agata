@@ -1,4 +1,4 @@
-##agata
+## agata
 
 A simple UI layer over the components necessary to read hit logs for GAv4 on
 Android devices. An **A**ndroid **GA** **T**ag **A**ssistant, if you will.
